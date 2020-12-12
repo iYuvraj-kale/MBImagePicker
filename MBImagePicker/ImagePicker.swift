@@ -8,10 +8,11 @@
 
 import UIKit
 public protocol ImagePickerDelegate: class {
-    func didSelect(image: UIImage?)
+//    func didSelect(image: UIImage?)
+    func didSelect(info: [UIImagePickerController.InfoKey: Any]?)
 }
 
-class ImagePicker: NSObject {
+class ImagePicker: NSObject,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     private let pickerController: UIImagePickerController
     private weak var presentationController: UIViewController?
@@ -66,31 +67,32 @@ class ImagePicker: NSObject {
         self.presentationController?.present(alertController, animated: true)
     }
 
-    private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
-        controller.dismiss(animated: true, completion: nil)
-
-        self.delegate?.didSelect(image: image)
-    }
-}
-
-extension ImagePicker: UIImagePickerControllerDelegate {
-
-    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.pickerController(picker, didSelect: nil)
+//    private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
+//        controller.dismiss(animated: true, completion: nil)
+//
+//        self.delegate?.didSelect(image: image)
+//    }
+     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.delegate?.didSelect(info: nil)
+        self.pickerController.dismiss(animated: true, completion: nil)
+//        self.pickerController(picker, didSelect: nil)
     }
 
-    public func imagePickerController(_ picker: UIImagePickerController,
+     func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        guard let image = info[.editedImage] as? UIImage else {
-            return self.pickerController(picker, didSelect: nil)
-        }
-        self.pickerController(picker, didSelect: image)
+        self.pickerController.dismiss(animated: true, completion: nil)
+//        guard let selectedImage = info[.originalImage] as? UIImage else {
+//            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+//        }
+
+//        let image = UIImage(named: "img")
+        self.delegate?.didSelect(info: info)
+//        self.delegate?.didSelect(image: selectedImage)
+        self.pickerController.dismiss(animated: true, completion: nil)
+
     }
 }
 
-extension ImagePicker: UINavigationControllerDelegate {
-
-}
 extension UIApplication {
     /// Sweeter: Returns the currently top-most view controller.
     public class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {

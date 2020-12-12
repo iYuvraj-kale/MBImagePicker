@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		54133E6D2584D99300CF3963 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133E6C2584D99300CF3963 /* AppDelegate.swift */; };
-		54133E6F2584D99300CF3963 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133E6E2584D99300CF3963 /* SceneDelegate.swift */; };
 		54133E712584D99300CF3963 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133E702584D99300CF3963 /* ViewController.swift */; };
 		54133E742584D99300CF3963 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54133E722584D99300CF3963 /* Main.storyboard */; };
 		54133E762584D99600CF3963 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54133E752584D99600CF3963 /* Assets.xcassets */; };
@@ -16,6 +15,7 @@
 		54133E842584D99700CF3963 /* MBImagePickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133E832584D99700CF3963 /* MBImagePickerTests.swift */; };
 		54133E8F2584D99700CF3963 /* MBImagePickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133E8E2584D99700CF3963 /* MBImagePickerUITests.swift */; };
 		54133EA02584D9B700CF3963 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133E9F2584D9B700CF3963 /* ImagePicker.swift */; };
+		54133EAB2584DDE800CF3963 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54133EAA2584DDE800CF3963 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 /* Begin PBXFileReference section */
 		54133E692584D99300CF3963 /* MBImagePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBImagePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54133E6C2584D99300CF3963 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54133E6E2584D99300CF3963 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		54133E702584D99300CF3963 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		54133E732584D99300CF3963 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		54133E752584D99600CF3963 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		54133E8E2584D99700CF3963 /* MBImagePickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBImagePickerUITests.swift; sourceTree = "<group>"; };
 		54133E902584D99700CF3963 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54133E9F2584D9B700CF3963 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		54133EAA2584DDE800CF3963 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +101,9 @@
 		54133E6B2584D99300CF3963 /* MBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				54133EAA2584DDE800CF3963 /* SceneDelegate.swift */,
 				54133E9F2584D9B700CF3963 /* ImagePicker.swift */,
 				54133E6C2584D99300CF3963 /* AppDelegate.swift */,
-				54133E6E2584D99300CF3963 /* SceneDelegate.swift */,
 				54133E702584D99300CF3963 /* ViewController.swift */,
 				54133E722584D99300CF3963 /* Main.storyboard */,
 				54133E752584D99600CF3963 /* Assets.xcassets */,
@@ -264,7 +264,7 @@
 				54133E712584D99300CF3963 /* ViewController.swift in Sources */,
 				54133EA02584D9B700CF3963 /* ImagePicker.swift in Sources */,
 				54133E6D2584D99300CF3963 /* AppDelegate.swift in Sources */,
-				54133E6F2584D99300CF3963 /* SceneDelegate.swift in Sources */,
+				54133EAB2584DDE800CF3963 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,12 +442,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55QQP72PTY;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MBImagePicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildauto.MBImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -462,12 +464,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 55QQP72PTY;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = MBImagePicker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_execute;
 				PRODUCT_BUNDLE_IDENTIFIER = com.buildauto.MBImagePicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

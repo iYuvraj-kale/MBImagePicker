@@ -1,15 +1,16 @@
 //
 //  SceneDelegate.swift
-//  MBImagePicker
+//  UrgiDoctor
 //
-//  Created by Yuvraj Bharat Kale on 12/12/20.
+//  Created by Yuvraj Bharat Kale on 05/11/20.
 //
 
 import UIKit
-
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var navigationController: UINavigationController?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,6 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+        loginDashboardSetup(window: windowScene)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -45,6 +48,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+    }
+
+        //business logic to set inital screen
+    func loginDashboardSetup(window: UIWindowScene) {
+//        let isLogin = UserDefaults.standard.bool(forKey: Constant.UserDefaults.IS_LOGGED_IN)
+//              print("ISLOGEDIN : \(isLogin)")
+//              if isLogin {
+//                print("TRUE")
+//                self.window = UIWindow(windowScene: window)
+//                //self.window =  UIWindow(frame: UIScreen.main.bounds)
+//                let storyboard = UIStoryboard(name: Constant.Storyboard.Profile, bundle: nil)
+//                guard let rootVC = storyboard.instantiateViewController(identifier: "MedicalRecordViewController") as? MedicalRecordViewController else {
+//                    print("ViewController not found")
+//                    return
+//                }
+//
+////                guard let rootVC = storyboard.instantiateViewController(identifier: "ProfileViewController") as? ProfileViewController else {
+////                    print("ViewController not found")
+////                    return
+////                }
+//                let rootNC = UINavigationController(rootViewController: rootVC)
+//                self.window?.rootViewController = rootNC
+//                self.window?.makeKeyAndVisible()
+//              }else{
+//                  // Go to Login Storyboard/Screen default setting from plist
+//              }
     }
 
 
